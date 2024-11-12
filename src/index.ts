@@ -1,32 +1,27 @@
 import "dotenv/config";
 import { drizzle } from "drizzle-orm/neon-http";
 import { eq } from "drizzle-orm";
-import { projectTable } from "./db/schema";
+import * as schema from "./db/schema";
+import projectsJson from "./db/projects.json";
 
 const db = drizzle(process.env.DATABASE_URL!);
 
 (async () => {
-  const project: typeof projectTable.$inferInsert = {
-    title: "teste 1",
-    description: "lorem ipus liber",
-    type: "lorem ipus liber",
-  };
+  // insert data
+  await db.insert(schema.projectTable).values(projectsJson);
 
-  await db.insert(projectTable).values(project);
-  console.log("New project created!");
+  // read data
+  const projects = await db.select().from(schema.projectTable);
+  console.log(JSON.stringify(projects, null, 2));
+  // await db
+  //   .update(schema.projectTable)
+  //   .set({
+  //     title: "lorem ipus liber",
+  //   })
+  //   .where(eq(schema.projectTable.title, project.title));
 
-  const projects = await db.select().from(projectTable);
-  console.log("getting all projects from the database: ", projects);
+  // console.log("project info updated!");
 
-  await db
-    .update(projectTable)
-    .set({
-      title: "lorem ipus liber",
-    })
-    .where(eq(projectTable.title, project.title));
-
-  console.log("project info updated!");
-
-  await db.delete(projectTable).where(eq(projectTable.title, project.title));
-  console.log("project deleted!");
+  // await db.delete(schema.projectTable).where(eq(schema.projectTable.title, project.title));
+  // console.log("project deleted!");
 })();
