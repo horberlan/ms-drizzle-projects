@@ -8,7 +8,10 @@ export const snippetsRouter = new Elysia({ prefix: "/api" })
         try {
             return await db.select().from(snippetsTable);
         } catch (error) {
-            throw new Error(`Failed to retrieve snippets: ${error.message}`);
+            if (error instanceof Error) {
+                throw new Error(`Failed to retrieve snippets: ${error.message}`);
+            }
+            throw new Error("Failed to retrieve snippets: Unknown error");
         }
     })
     .put("/snippets/:id", async ({ params, body }) => {
@@ -31,7 +34,10 @@ export const snippetsRouter = new Elysia({ prefix: "/api" })
 
             return updatedSnippet[ 0 ];
         } catch (error) {
-            throw new Error(`Failed to update snippet: ${error.message}`);
+            if (error instanceof Error) {
+                throw new Error(`Failed to update snippet: ${error.message}`);
+            }
+            throw new Error("Failed to update snippet: Unknown error");
         }
     }, {
         params: t.Object({
@@ -44,7 +50,7 @@ export const snippetsRouter = new Elysia({ prefix: "/api" })
             const { id } = params;
             const { stars } = body;
 
-            if (!stars || typeof stars !== "number" || stars < 0 || stars % 1 !== 0) {
+            if (typeof stars !== "number" || stars < 0 || !Number.isInteger(stars)) {
                 throw new Error("Invalid stars value. Must be a non-negative integer.");
             }
 
@@ -59,7 +65,10 @@ export const snippetsRouter = new Elysia({ prefix: "/api" })
 
             return updatedSnippet[ 0 ];
         } catch (error) {
-            throw new Error(`Failed to update snippet stars: ${error.message}`);
+            if (error instanceof Error) {
+                throw new Error(`Failed to update snippet stars: ${error.message}`);
+            }
+            throw new Error("Failed to update snippet stars: Unknown error");
         }
     }, {
         params: t.Object({
@@ -69,4 +78,3 @@ export const snippetsRouter = new Elysia({ prefix: "/api" })
             stars: t.Number()
         })
     });
-
