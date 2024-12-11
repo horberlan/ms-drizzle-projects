@@ -1,0 +1,30 @@
+[
+    {
+        "name": "pois.nada",
+        "snippet": "const onKeyPress = useDebounceFn((event: KeyboardEvent) => {\n  const newDirection = defaultKeysAndMoveDirection.find(\n    (c) => c.keyCode === event.keyCode\n  );\n\n  if (!newDirection) return;\n  if (!direction.value) return;\n  if (Math.abs(newDirection.keyCode - direction.value.keyCode) !== 2){\n    direction.value = newDirection;\n  }\n}, 25);",
+        "details": "",
+        "stars": 27,
+        "avatar_url": "https://avatars.githubusercontent.com/u/46747395?s=48&v=4"
+    },
+    {
+        "name": "pois.nada",
+        "snippet": "function initializeModelChunk(chunk: ResolvedModelChunk): T {    \n  const value: T = parseModel(chunk._response, chunk._value);\n  const initializedChunk: InitializedChunk = (chunk: any);\n  initializedChunk._status = INITIALIZED;\n  initializedChunk._value = value;\n  return value;\n} ",
+        "details": "",
+        "stars": 43,
+        "avatar_url": "https://avatars.githubusercontent.com/u/46747395?s=48&v=4"
+    },
+    {
+        "name": "pois.nada",
+        "snippet": "\ndefmodule AsyncTaskManager do\n@doc \"\"\"\nProcesses a task asynchronously.\n\"\"\"\n  def start_link do\n    pid = spawn(__MODULE__, :loop, [])\n    {:ok, pid}\n  end\n\n  def loop do\n    receive do\n      {:send_email, to, subject, body} ->\n        Task.async(fn -> EmailSender.send(to, subject, body) end)\n        loop()\n\n      {:process_image, image_data} ->\n        Task.async(fn -> ImageProcessor.process(image_data) end)\n        loop()\n\n      {:update_stats, stats_data} ->\n        StatsUpdater.update(stats_data)\n        loop()\n\n      msg ->\n        IO.inspect(\"Unknown message: #{inspect(msg)}\")\n        loop()\n    end\n  end\nend",
+        "details": "",
+        "stars": 23,
+        "avatar_url": "https://avatars.githubusercontent.com/u/46747395?s=48&v=4"
+    },
+    {
+        "name": "pois.nada",
+        "snippet": "defmodule PersonPattern do\n  def person_description(%{name: name, age: age}), \n    do: IO.puts(\"#{name} is #{age} years old\")\n  def person_description(map), do: IO.inspect(\"Unknown map: #{inspect(map)}\")\nend\n\nPersonPattern.person_description(%{name: \"Peter\", age: 25})\nPersonPattern.person_description(%{city: \"São Paulo\"})",
+        "details": "",
+        "stars": 31,
+        "avatar_url": "https://avatars.githubusercontent.com/u/46747395?s=48&v=4"
+    }
+]

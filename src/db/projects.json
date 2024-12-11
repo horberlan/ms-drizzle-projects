@@ -1,0 +1,86 @@
+[
+  {
+    "title": "Shopdope",
+    "description": "Revolutionize your shopping experience with our cutting-edge sales platform, seamlessly integrated with VTEX Store Framework and built with React.js.",
+    "type": "REACT",
+    "background": "FermentoProject",
+    "href": "https://www.shopdope.com.br"
+  },
+  {
+    "title": "Cryptodrone",
+    "description": "Unlock the full potential of Web3.js with our expert development and maintenance services, tailored for innovative applications.",
+    "type": "REACT",
+    "background": "ReactIconFlag",
+    "href": "https://cryptodrone.gitbook.io/crypto-drone"
+  },
+  {
+    "title": "FuerzaStudio",
+    "description": "Elevate your digital presence with our comprehensive development and maintenance solutions for React.js applications.",
+    "type": "REACT",
+    "background": "FuerzaStudio",
+    "href": "https://github.com/horberlan/Frontend-Grid"
+  },
+  {
+    "title": "NFT Web Page",
+    "description": "Immerse in the world of digital ownership with our bespoke NFT web page, crafted with precision using React.js.",
+    "type": "REACT",
+    "background": "NftProject",
+    "href": "_blank"
+  },
+  {
+    "title": "Grupo Barros",
+    "description": "Expertly designed web page for a renowned law firm, showcasing professionalism and trust through innovative web development with Node.js.",
+    "type": "NODE",
+    "background": "BarrosGroupProject",
+    "href": "_blank"
+  },
+  {
+    "title": "imua",
+    "description": "Executive Recruitment Platform: Crafting intuitive Vue.js frontend experiences, paired with a robust Python backend utilizing FastAPI, to revolutionize executive search and placement.",
+    "type": "VUE",
+    "background": "ImuaProject",
+    "href": "https://imua.com.br/"
+  },
+  {
+    "title": "dahliaOS Website",
+    "description": "The official online presence of dahliaOS, meticulously crafted to reflect innovation and unity, built with React.",
+    "type": "REACT",
+    "background": "DahliaIcon",
+    "href": "https://github.com/dahliaOS/website"
+  },
+  {
+    "title": "Twidie",
+    "description": "Transforming the media and entertainment industry with a groundbreaking marketplace where professionals and companies connect, discover, and thrive, powered by React.",
+    "type": "REACT",
+    "background": "TwidieIcon",
+    "href": "https://twidie.com/"
+  },
+  {
+    "title": "Buni",
+    "description": "Innovative fintech solutions come alive with the development of a cutting-edge digital account platform (b.Uni), leveraging the capabilities of React.js.",
+    "type": "REACT",
+    "background": "BuniProject",
+    "href": "https://www.buni.digital/"
+  },
+  {
+    "title": "eadflix",
+    "description": "Empowering education through technology with the backend development of an educational platform, focusing on API implementation and business rule integration using Node.js.",
+    "type": "NODE",
+    "background": "eadFlix",
+    "href": "https://eadflix.io/"
+  },
+  {
+    "title": "v-timeline-component",
+    "description": "Enhance your Vue.js 3 projects with our meticulously developed NPM package, designed to simplify the integration of timeline components.",
+    "type": "NODE",
+    "background": "vTimelineComponent",
+    "href": "https://www.npmjs.com/package/v-timeline-component"
+  },
+  {
+    "title": "CyberFuture",
+    "description": "Elevate your React projects with our futuristic, cyber-themed aspect components, designed to bring a unique edge to your applications.",
+    "type": "NODE",
+    "background": "CyberFuture",
+    "href": "https://www.npmjs.com/package/cyberfuture"
+  }
+]

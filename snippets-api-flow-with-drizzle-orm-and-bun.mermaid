@@ -1,0 +1,29 @@
+---
+config:
+  theme: neo
+  look: neo
+  layout: dagre
+---
+flowchart TD
+ subgraph subGraph0["Snippets API Flow"]
+        G["Fetch Snippets"]
+        C["Snippets API Endpoints"]
+        H["Update Snippet"]
+        I["Update Snippet Stars"]
+  end
+ subgraph subGraph1["Database Schema"]
+        J["Snippets Table"]
+  end
+    A["Client"] -- HTTP Request --> B["Bun Server with Elysia"]
+    B -- Route Handler --> C
+    C -- Query/Mutation --> D["Drizzle ORM"]
+    D -- SQL Query --> E["Neon PostgreSQL Database"]
+    F["Snippets Schema"] -. Defines Structure .-> D
+    F -. Reflects .-> E
+    C -- GET /snippets --> G
+    C -- PUT /snippets/:id --> H
+    C -- PATCH /snippets/:id/stars --> I
+    F -. Defines .-> J
+    G --> D
+    H --> D
+    I --> D

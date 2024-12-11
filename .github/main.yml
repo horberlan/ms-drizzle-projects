@@ -1,0 +1,8 @@
+    - name: bun-diff
+  # You may pin to the exact commit or the version.
+  # uses: RobinTail/bun-diff-action@d1e3dd4b7410a185c01328d0929cfc1b5cb2067b
+  uses: RobinTail/bun-diff-action@v0.3.2
+  with:
+    # Directory to find bun.lockb file
+    working-directory: # optional, default is .
+          

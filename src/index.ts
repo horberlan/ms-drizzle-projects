@@ -1,27 +1,21 @@
 import "dotenv/config";
-import { drizzle } from "drizzle-orm/neon-http";
-import { eq } from "drizzle-orm";
-import * as schema from "./db/schema";
-import projectsJson from "./db/projects.json";
 
-const db = drizzle(process.env.DATABASE_URL!);
+import { drizzle } from 'drizzle-orm/neon-serverless';
+import { Pool } from '@neondatabase/serverless'
 
-(async () => {
-  // insert data
-  await db.insert(schema.projectTable).values(projectsJson);
+import { Elysia } from "elysia";
+import { snippetsRouter } from "./routes/snippets";
 
-  // read data
-  const projects = await db.select().from(schema.projectTable);
-  console.log(JSON.stringify(projects, null, 2));
-  // await db
-  //   .update(schema.projectTable)
-  //   .set({
-  //     title: "lorem ipus liber",
-  //   })
-  //   .where(eq(schema.projectTable.title, project.title));
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+export const db = drizzle(pool);
 
-  // console.log("project info updated!");
+const app = new Elysia()
+  // .use(projectsRouter)
+  .use(snippetsRouter)
+  // .use(formRouter)
+  .listen(3000);
 
-  // await db.delete(schema.projectTable).where(eq(schema.projectTable.title, project.title));
-  // console.log("project deleted!");
-})();
+console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
+
+
+
